@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kando Hub | Coming Soon</title>
+    <meta
+      name="description"
+      content="Kando Hub is coming soon. Get notified when we launch."
+    />
+    <style>
+      :root {
+        --brand-dark: #253551;
+        --brand-blue: #375a78;
+        --brand-gold: #ba9c81;
+        --surface: #f8fafc;
+        --ink: #17211f;
+        --muted: #5f6f69;
+        --radius: 16px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background:
+          radial-gradient(1200px 600px at 10% -10%, rgba(55, 90, 120, 0.1), transparent 62%),
+          radial-gradient(1000px 600px at 95% -5%, rgba(186, 156, 129, 0.16), transparent 70%),
+          linear-gradient(160deg, #f8fafc 0%, #ffffff 46%, #f7f9fc 100%);
+        color: #111827;
+        line-height: 1.4;
+      }
+
+      .page {
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: clamp(1.25rem, 3vw, 2.75rem);
+        gap: 1.5rem;
+        position: relative;
+      }
+
+      .top-logo {
+        position: absolute;
+        top: clamp(1.1rem, 2.2vw, 1.8rem);
+        left: clamp(1.1rem, 2.2vw, 1.8rem);
+        z-index: 2;
+        opacity: 0.96;
+        filter: drop-shadow(0 10px 24px rgba(17, 24, 39, 0.08));
+      }
+
+      .hero-wrap {
+        flex: 1;
+        display: grid;
+        place-items: center;
+        padding-top: clamp(2.5rem, 6vw, 4.5rem);
+      }
+
+      .hero {
+        width: min(920px, 100%);
+        text-align: center;
+      }
+
+      .hero-line {
+        margin: 0;
+        font-size: clamp(2.25rem, 6.8vw, 5.6rem);
+        font-weight: 700;
+        line-height: 1.04;
+        letter-spacing: -0.03em;
+        text-wrap: balance;
+        color: #0f172a;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+      }
+
+      .brand {
+        margin-top: clamp(1.75rem, 4.8vw, 2.8rem);
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.35rem;
+      }
+
+      .brand-logo {
+        width: auto;
+        height: clamp(104px, 13vw, 164px);
+        object-fit: contain;
+      }
+
+      .wordmark {
+        font-size: clamp(1rem, 2.2vw, 1.2rem);
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        color: var(--brand-dark);
+      }
+
+      .coming {
+        margin-top: 0.1rem;
+        font-size: clamp(1rem, 2.2vw, 1.2rem);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #8d735d;
+        font-weight: 600;
+      }
+
+      .footer {
+        width: min(720px, 100%);
+        margin: 0 auto;
+      }
+
+      .notify-prompt {
+        margin: 0 0 0.5rem;
+        text-align: center;
+        font-size: 0.92rem;
+        color: #475569;
+      }
+
+      .signup {
+        display: flex;
+        gap: 0.55rem;
+        background: rgba(255, 255, 255, 0.88);
+        border: 1px solid #e2e8f0;
+        border-radius: var(--radius);
+        padding: 0.55rem;
+        box-shadow: 0 16px 40px rgba(17, 24, 39, 0.08);
+        backdrop-filter: blur(4px);
+      }
+
+      .signup input[type="email"] {
+        flex: 1;
+        border: 1px solid #e5e7eb;
+        border-radius: calc(var(--radius) - 6px);
+        padding: 0.85rem 0.95rem;
+        background: #fff;
+        color: var(--ink);
+        font-size: 0.95rem;
+        min-width: 0;
+      }
+
+      .signup input[type="email"]::placeholder {
+        color: var(--muted);
+      }
+
+      .signup input[type="email"]:focus {
+        outline: 2px solid rgba(186, 156, 129, 0.7);
+        outline-offset: 1px;
+      }
+
+      .signup button {
+        border: 0;
+        border-radius: calc(var(--radius) - 6px);
+        padding: 0.85rem 1rem;
+        background: var(--brand-blue);
+        color: #ffffff;
+        font-weight: 600;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: background 0.2s ease, transform 0.2s ease;
+      }
+
+      .signup button:hover {
+        background: #2f4d67;
+        transform: translateY(-1px);
+      }
+
+      .contact {
+        margin: 0.8rem 0 0;
+        text-align: center;
+        font-size: 0.88rem;
+        color: #4b5563;
+      }
+
+
+      @media (max-width: 640px) {
+        .signup {
+          flex-direction: column;
+        }
+
+        .signup button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <div class="top-logo" aria-hidden="true">
+        <img
+          class="brand-logo"
+          src="https://kandohub.com.s3.amazonaws.com/attached_assets/Kando_Hub_Logo_Updated_transparent.png"
+          alt="Kando Hub logo"
+        />
+      </div>
+      <section class="hero-wrap">
+        <div class="hero">
+          <h1 class="hero-line">Ready for your team to work better together?</h1>
+
+          <div class="brand" aria-label="Kando Hub coming soon">
+            <span class="coming">Coming Soon</span>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p class="notify-prompt">Enter your email to get notified at launch.</p>
+        <form class="signup" id="notifyForm">
+          <input
+            type="email"
+            id="notifyEmail"
+            name="email"
+            placeholder="you@company.com"
+            aria-label="Get notified when we launch"
+            required
+          />
+          <button type="submit">Notify Me</button>
+        </form>
+        <p class="contact">Have a question? Contact options will be shared at launch.</p>
+      </footer>
+    </main>
+    <script>
+      (function () {
+        var form = document.getElementById("notifyForm");
+        var emailInput = document.getElementById("notifyEmail");
+
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+          var email = (emailInput.value || "").trim();
+          if (!email) {
+            emailInput.focus();
+            return;
+          }
+          form.reset();
+          var thanks = document.getElementById("notifyThanks");
+          if (!thanks) {
+            thanks = document.createElement("p");
+            thanks.id = "notifyThanks";
+            thanks.className = "contact";
+            form.insertAdjacentElement("afterend", thanks);
+          }
+          thanks.textContent = "Thanks! You are on the list to be notified at launch.";
+        });
+      })();
+    </script>
+  </body>
+</html>
