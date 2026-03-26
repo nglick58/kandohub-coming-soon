@@ -178,6 +178,10 @@
         color: #4b5563;
       }
 
+      .contact.error {
+        color: #b91c1c;
+      }
+
 
       @media (max-width: 640px) {
         .signup {
@@ -237,7 +241,7 @@
             emailInput.focus();
             return;
           }
-          form.reset();
+
           var thanks = document.getElementById("notifyThanks");
           if (!thanks) {
             thanks = document.createElement("p");
@@ -245,7 +249,34 @@
             thanks.className = "contact";
             form.insertAdjacentElement("afterend", thanks);
           }
-          thanks.textContent = "Thanks! You are on the list to be notified at launch.";
+          thanks.className = "contact";
+          thanks.textContent = "Submitting...";
+
+          fetch("https://formsubmit.co/ajax/nateg@kandohub.com", {
+            method: "POST",
+            headers: { "Content-Type": "application/json", Accept: "application/json" },
+            body: JSON.stringify({
+              email: email,
+              _subject: "Kando Hub launch notification signup",
+              _captcha: "false"
+            })
+          })
+            .then(function (response) {
+              if (!response.ok) throw new Error("Request failed");
+              return response.json();
+            })
+            .then(function () {
+              form.reset();
+              thanks.textContent = "Thanks! You are on the list to be notified at launch.";
+            })
+            .catch(function () {
+              var subject = encodeURIComponent("Kando Hub launch notification signup");
+              var body = encodeURIComponent("Please notify this email at launch:\n\n" + email);
+              window.location.href = "mailto:nateg@kandohub.com?subject=" + subject + "&body=" + body;
+              thanks.className = "contact error";
+              thanks.textContent =
+                "We could not submit automatically. An email draft opened so you can still join the list.";
+            });
         });
       })();
     </script>
